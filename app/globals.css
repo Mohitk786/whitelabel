@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Values copied from ~/lunacal-ai-new/app/globals.css */
+@layer base {
+  :root {
+    --primary-background: 269 32% 13%;
+    --background: 269 32% 13%;
+    --foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --border: 214.3 31.8% 91.4%;
+    --radius: 0.5rem;
+    --gray-1: 0 0% 24%;
+    --gray-2: 0 0% 51%;
+    --gray-3: 240 7% 78%;
+    --gray-4: 0 0% 89%;
+    --gray-5: 0 0% 96%;
+    --nav-h: 64px;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-h);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Wide screens scale up gently, like the lunacal.ai homepage (1rem = 1vw from 1600px). */
+  @media (min-width: 1600px) {
+    html {
+      font-size: min(1vw, 20px);
+    }
+  }
+
+  body {
+    @apply bg-background text-foreground font-dm-sans overflow-x-hidden antialiased;
+  }
+
+  ::selection {
+    color: black;
+    background: #b985f566;
+  }
+
+  :focus-visible {
+    outline: 2px solid #b483f9;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .gradient-border {
+    border-style: double !important;
+    border-color: transparent !important;
+    background-image:
+      linear-gradient(var(--bg-color, #fff), var(--bg-color, #fff)),
+      radial-gradient(circle at top left, #cc8ae6, #fd9e8d) !important;
+    background-origin: border-box !important;
+    background-clip: padding-box, border-box !important;
+  }
+
+  .text-gradient-head {
+    @apply bg-head-gradient bg-clip-text text-transparent;
+  }
+
+  .text-gradient-hero {
+    @apply bg-hero-gradient bg-clip-text text-transparent;
+  }
+
+  .text-gradient-accent {
+    @apply bg-accent-gradient bg-clip-text text-transparent;
+  }
+
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+/* Scroll reveal (toggled by components/white-label/Reveal.tsx) */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Range slider (calculator) */
+.range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #bd84ff, #ff9f86) 0 / var(--fill, 50%) 100% no-repeat,
+    rgba(255, 255, 255, 0.14);
+  cursor: pointer;
+}
+
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  border: 5px solid #b483f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.range::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 5px solid #b483f9;
+}
+
+/* Autofill inside the white form card */
+form input:-webkit-autofill,
+form input:-webkit-autofill:hover,
+form input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #1a1a1a;
+  transition: background-color 50000s ease-in-out 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal,
+  .fade-up {
+    opacity: 1;
+    transform: none;
+  }
+}
