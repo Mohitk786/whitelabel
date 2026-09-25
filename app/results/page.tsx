@@ -57,7 +57,7 @@ export default async function ResultsPage({ searchParams }: Props) {
       <div className="mx-auto max-w-[1280px]">
         <h1 className="text-gradient-head pb-1 text-5xl font-bold tracking-[-0.05em] sm:text-6xl">Responses So Far</h1>
         <p className="mb-10 mt-2 text-lg font-light text-body">
-          White Label early access survey. Stored locally in data/responses.jsonl.
+          White Label early access survey.
         </p>
 
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">

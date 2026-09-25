@@ -81,6 +81,12 @@ export default function RootLayout({
             __html: "document.documentElement.classList.add('js')",
           }}
         />
+        <script
+          defer
+          data-website-id="2az9mex2a2cy"
+          data-domain="whitelabel-iota.vercel.app"
+          src="https://data.whos1.bid/script.js">
+        </script>
       </head>
       <body
         className={`${dmSans.variable} ${sourceSerif4.variable} ${youngSerif.variable} ${bricolage.variable} ${jakarta.variable}`}
