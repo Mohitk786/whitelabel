@@ -1,13 +1,5 @@
 import Image from "next/image";
-import { FOUNDER_EMAIL, WEB_URL } from "@/lib/constants";
-
-const LINKS = [
-  { title: "Lunacal.ai", href: WEB_URL },
-  { title: "Pricing", href: `${WEB_URL}/pricing` },
-  { title: "Affiliate program", href: `${WEB_URL}/affiliate-program` },
-  { title: "Privacy Policy", href: `${WEB_URL}/privacy-policy` },
-  { title: "Terms of Use", href: `${WEB_URL}/terms-of-use` },
-];
+import { FOUNDER_EMAIL } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -22,17 +14,6 @@ export default function Footer() {
             </a>
           </p>
         </div>
-        <nav aria-label="Footer">
-          <ul className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
-            {LINKS.map((l) => (
-              <li key={l.title}>
-                <a href={l.href} className="text-foreground/70 transition hover:text-foreground hover:underline">
-                  {l.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
       </div>
       <p className="mx-auto mt-8 max-w-[1280px] text-sm text-foreground/50">© 2026 Lunacal LLC. All rights reserved.</p>
     </footer>

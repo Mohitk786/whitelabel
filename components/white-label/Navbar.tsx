@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { LOG_IN, WEB_URL } from "@/lib/constants";
+import { WEB_URL } from "@/lib/constants";
 
 const LINKS = [
   { href: "#how", label: "How it works" },
@@ -69,12 +69,6 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           <a
-            href={LOG_IN}
-            className="hidden h-10 items-center rounded-[8px] px-4 text-[16px] font-medium transition-colors hover:bg-white/10 sm:flex"
-          >
-            Log in
-          </a>
-          <a
             href="#early-access"
             className="hidden h-10 items-center rounded-[8px] bg-card px-4 text-[15px] font-medium text-card-foreground transition-colors hover:bg-card/80 xs:flex sm:text-[16px]"
           >
@@ -125,13 +119,6 @@ export default function Navbar() {
             className="flex h-12 items-center justify-center rounded-lg bg-white text-lg font-semibold text-black"
           >
             Join early access
-          </a>
-          <a
-            href={LOG_IN}
-            tabIndex={open ? undefined : -1}
-            className="flex h-12 items-center justify-center rounded-lg border border-white/20 text-lg font-medium"
-          >
-            Log in
           </a>
         </div>
       </div>
